@@ -1,0 +1,103 @@
+---
+title: "Plots with too many points"
+output: html_document
+---
+
+```{r}
+# file.choose()
+# 
+# variables <- c("ST","AGEP","COW","MAR","WKHP","WKW","FOD1P","PERNP")
+# 
+# census.data.a <- fread("/home/matti/Downloads/USCensusData/pums/ss13pusa.csv",select = variables)
+# 
+# 
+# census.data.b <- fread("/home/matti/Downloads/USCensusData/pums/ss13pusb.csv",select=variables)
+# 
+# census.data <- rbind(census.data.b,census.data.a)
+# 
+# rm(census.data.b,census.data.a)
+# 
+# setwd("~/Arbeitsfläche")
+# save(census.data,file = "censusdata.RData")
+setwd("~/Arbeitsfläche")
+load("censusdata.RData" )
+
+# census.data <- census.data[1:1000000,]
+
+# ST - State Code
+# ADJINC  -Adjustment factor for income and earnings dollar amounts
+# AGEP - Age
+# COW -Class of worker
+# MAR        1      
+#     Marital status
+# 
+# WKHP       2      
+#     Usual hours worked per week past 12 months
+# WKW        1      
+#     Weeks worked during past 12 months
+# FOD1P	   4
+#     Recoded field of degree - first entry
+# PERNP      7      
+#     Total person's earning
+# 
+# PINCP      7      
+#     Total person's income (signed)
+```
+
+```{r}
+library(ggplot2)
+library(bigvis)
+library(hexbin)
+```
+
+```{r}
+
+binned <- with(census.data,condense(bin(PERNP,1000),bin(WKHP,5)))
+
+
+summary(census.data$WKHP)
+summary(binned$WKHP)
+
+qplot(binned$WKHP)
+qplot(census.data$WKHP)
+```
+
+```{r}
+
+hours.earning <- ggplot(binned ,aes(x=WKHP,y=PERNP))
+hours.earning + stat_binhex()
+
+```
+
+```{r}
+hours.earning + stat_bin() + geom_jitter(alpha=0.3)
+```
+
+```{r}
+hours.earning + geom_point() + geom_density2d()
+```
+
+```{r}
+hours.earning+
+  geom_point(colour="blue", alpha=0.2) + 
+  geom_density2d(colour="black")
+```
+
+
+```{r}
+smoothScatter(y=binned$PERNP,x = binned$WKHP)
+```
+
+```{r}
+hexbinplot(binned$PERNP ~ binned$WKHP)
+```
+
+```{r}
+
+autoplot(binned)+coord_flip()+scale_fill_gradientn( colours = rainbow(6))  
+
+h <- best_h(condense(bin(census.data$PERNP,1000)),control = list(trace = 3, REPORT = 1))
+
+autoplot(smooth(binned,h))+coord_flip()+scale_fill_gradientn( colours = rainbow(6)) 
+```
+
