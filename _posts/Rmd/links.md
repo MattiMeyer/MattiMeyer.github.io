@@ -1,8 +1,4 @@
----
-layout: page
-title: Links
-subtitle: Books and Papers that I've read and websides I use
----
+
 
 ##R
 
