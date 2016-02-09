@@ -7,6 +7,7 @@ subtitle: Books and Papers that I've read and websides I use
 ##R
 
 ###Websides  
+
 [Quick-R](http://www.statmethods.net/index1.html)   
 ~a good webside for quick help in R
 
