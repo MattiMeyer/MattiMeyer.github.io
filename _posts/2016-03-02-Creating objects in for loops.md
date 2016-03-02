@@ -121,7 +121,7 @@ for(i in 1:3){
  modernfamily <- cbind(modernfamily, number) ## getting the old data frame and 
                                              ## the new calculation together
           
- names(modernfamily)[names(modernfamily)=="number"] <- nam  ## renaming the new variable in the data                                                               ## frame
+ names(modernfamily)[names(modernfamily)=="number"] <- nam  ## renaming the new variable                                                                           ## in the data frame
 }
 
 modernfamily
