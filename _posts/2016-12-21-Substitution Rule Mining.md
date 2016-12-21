@@ -21,7 +21,7 @@ The R code below won't be the best way to handle this problem. There are some pa
 
 Here comes the code that I used for the function and below that I will show that it works well with the example used in the article by Teng et. al (2002).
 
-~~~
+```r
 # Used packages:
 library(arules)
 
@@ -275,12 +275,12 @@ SRM <- function(TransData, MinSup, MinConf, pMin, pChi, itemLabel, nTID){
  
  # end
 }
-~~~
+```
 
 To show how the SRM function works, I reproduce the example in the article below. As you will see the output shows at the left side the substitution and right beside it the product which it can replace.  
 
 
-~~~
+```r
 # Example
 itemset <- data.frame(TID = c(1, 1, 2, 2, 3, 4, 4, 4, 5, 5, 5, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10),
                       Item = c("b", "f", "b", "c", "c", "a", "b", "f", "a", "c", "d", "e", "a", "c", "d","b", "c", "f", "a", "b", "e", "a", "d"))
@@ -291,12 +291,12 @@ TransData <- as(splitData, "transactions")
 
 
 SRM(TransData = TransData, MinSup = 0.2, MinConf = 0.7, pMin = -0.5, pChi = .95, itemLabel = as.character(unique(itemset$Item)), nTID =length(unique(itemset$TID)))
-~~~
+```
 
-~~~
+```r
 ##   Substitute  Product Support Confidence Correlation
 ## 1      { b } => { d }     0.5          1  -0.6546537
 ## 2      { d } => { b }     0.3          1  -0.6546537
 ## 3     { ad } => { b }     0.3          1  -0.6546537
-~~~
+```
 
