@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Substitution Rule Mining
-subtitle: In this blogpost I introduce my implementation of the substitution Rule Mining Algorithm from Teng, Hsieh and Chen (2002) in R.
+subtitle: Implementation of the substitution Rule Mining Algorithm from Teng, Hsieh and Chen (2002) in R
 ---
 
 
