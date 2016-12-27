@@ -1,14 +1,13 @@
 ---
 layout: post
 title: Substitution Rule Mining
-subtitle: In this blogpost I introduce my implementation of the substitution Rule Mining Algorithm from [Teng, Hsieh and Chen (2002)](https://www.researchgate.net/publication/279125220_On_the_mining_of_substitution_rules_for_statistically_dependent_items) in R.
+subtitle: In this blogpost I introduce my implementation of the substitution Rule Mining Algorithm from Teng, Hsieh and Chen (2002) in R.
 ---
 
 
-# Abstract
-In this blogpost I introduce my implementation of the substitution Rule Mining Algorithm from [Teng, Hsieh and Chen (2002)](https://www.researchgate.net/publication/279125220_On_the_mining_of_substitution_rules_for_statistically_dependent_items) in R.
 
-# Introduction
+
+
 Imagine being a seller who wants to know what his customer often buy together. He wants some _rules_ like "When people buy X they also often buy Y", to get to know how e.g. he has to build up his store, so customers can find all they want very easily. A data scientist would know that the seller is searching for so called, _Association Rules_, which are often used in a Market Basket Analysis. The most known algorithm to extract such rules is the _Apriori_ algorithm, founded by [Agrawal & Srikant (1994)](https://www.it.uu.se/edu/course/homepage/infoutv/ht08/vldb94_rj.pdf). 
 
 The concept of  Association Rules is very intuitive, because they count how often some variations of products are bought together, which is called _Support_. For example if we would have 10 different customers and 3 of them would buy apples and bananas, the combination of _{apples, bananas}_ would have a Support of 0.3. And maybe apples are bought by 5 people, because they want to take the doctor away, it would have a Support of 0.5. There are some other indices like _Confidence_ and _Interest_, which are described [here](https://en.wikipedia.org/wiki/Association_rule_learning), but all depends on the suppport of the products. 
