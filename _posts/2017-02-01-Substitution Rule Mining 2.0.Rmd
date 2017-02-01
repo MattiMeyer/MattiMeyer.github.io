@@ -1,10 +1,8 @@
 ---
-title: "SRM 2.0"
-author: "Matti Meyer"
-date: "1 2 2017"
-output: html_document
+layout: post
+title: Substitution Rule Mining 2.0
+subtitle: Better performance
 ---
-
 In my [last post](http://mattimeyer.github.io/2016-12-21-Substitution-Rule-Mining/) I've introduced an implementation of a Substitution Rule Mining algorithm. Now I've developed a new version for better performance. Thus I used the purrr and tibble package from the tidyverse. Tibbles need much less memory like normal data frames and the purrr package contains fast loop functions that can also specify their outputs. If you want to learn more about purrr, Jenny Bryan developed [this great tutorial](https://jennybc.github.io/purrr-tutorial/). 
 
 Furthermore I've deleted the part of the algorithm that searched for combination of several subsitution products which was included in the old version and is mentioned in the article by Teng, Hsieh and Chen (2002). In practive I didn't found good combination with it and I think it was more interesting to look for substitution for specific products.
