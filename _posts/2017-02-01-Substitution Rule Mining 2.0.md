@@ -7,7 +7,7 @@ In my [last post](http://mattimeyer.github.io/2016-12-21-Substitution-Rule-Minin
 
 Furthermore I've deleted the part of the algorithm that searched for combination of several subsitution products which was included in the old version and is mentioned in the article by Teng, Hsieh and Chen (2002). In practive I didn't found good combination with it and I think it was more interesting to look for substitution for specific products.
 
-~~~
+```r
 SRM <- function(TransData, MinSup, MinConf, pMin, pChi, itemLabel, nTID){
   
   # Packages ----------------------------------------------------------------
@@ -173,5 +173,5 @@ SRM <- function(TransData, MinSup, MinConf, pMin, pChi, itemLabel, nTID){
 
 
 
-~~~
+```
 
